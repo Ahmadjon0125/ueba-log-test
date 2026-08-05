@@ -1,8 +1,9 @@
 import glob
 import gzip
-import os
 import re
+import sys
 from datetime import datetime
+
 import joblib
 import pandas as pd
 from sklearn.ensemble import IsolationForest
@@ -21,9 +22,9 @@ log_files = glob.glob("/var/log/auth.log*")
 
 for file_path in log_files:
     if file_path.endswith(".gz"):
-        f = gzip.open(file_path, "rt", encoding="utf-8", errors="ignore")
+        f = gzip.open(file_path, "rt", encoding="utf-8", errors="ignore")  # noqa: SIM115
     else:
-        f = open(file_path, "r", encoding="utf-8", errors="ignore")
+        f = open(file_path, "r", encoding="utf-8", errors="ignore")  # noqa: SIM115
 
     with f:
         for line in f:
@@ -44,7 +45,7 @@ for file_path in log_files:
                     else:
                         user = "system"
 
-                    dt = datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%S")
+                    dt = datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%S")  # noqa: DTZ007
                     status = 0 if "Failed" in message else 1
 
                     data.append({
@@ -57,7 +58,7 @@ for file_path in log_files:
 
 if not data:
     print("[!] Loglarda ma'lumot topilmadi.")
-    exit()
+    sys.exit()
 
 # DataFrame yaratamiz
 df = pd.DataFrame(data)
