@@ -1,5 +1,3 @@
-
-
 def cvss_round_up(value):
     """CVSS standartidagi maxsus yuqoriga yaxlitlash funksiyasi.
     Raqamni har doim eng yaqin birinchi o'ndan bir xonagacha yuqoriga yaxlitlaydi.
