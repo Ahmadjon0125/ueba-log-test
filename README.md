@@ -1,4 +1,4 @@
-# 🔍 UEBA - User Behavior Analytics
+# 🔍 UEBA - User and Entity Behavior Analytics
 
 **Log fayllardan foydalanib, foydalanuvchi xatti-harakatlarini tahlil qilish va anomaliyalarni aniqlash tizimi.**
 
