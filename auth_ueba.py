@@ -1,8 +1,8 @@
-import pandas as pd
-import numpy as np
 import re
 from datetime import datetime
-from collections import defaultdict
+
+import numpy as np
+import pandas as pd
 
 # =============================================================================
 # 1. AUTH.LOG PARSING
@@ -43,7 +43,7 @@ def parse_auth_line(line: str) -> dict:
     timestamp_str = timestamp_match.group(1)
     try:
         timestamp = datetime.fromisoformat(timestamp_str)
-    except:
+    except:  # noqa: E722
         return None
     
     record = {
